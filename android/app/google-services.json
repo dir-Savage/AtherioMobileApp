@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "446760353106",
+    "project_id": "atherio-c2262",
+    "storage_bucket": "atherio-c2262.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446760353106:android:486325cca5c9d991a58e8b",
+        "android_client_info": {
+          "package_name": "com.atherioappiddirsavage.atherio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpSAnY3A2stMjWWB9Kx5zh_iyA7oJrvjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,69 @@
+name: atherio
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_screenutil:
+  flutter_svg:
+  bloc:
+  flutter_bloc:
+  equatable:
+  dio:
+  get_it:
+  shared_preferences:
+  image_picker:
+  path_provider:
+  formz:
+  email_validator:
+  cloud_firestore:
+  firebase_auth:
+  firebase_core:
+  firebase_storage:
+  firebase_messaging:
+  freezed_annotation:
+  injectable:
+  internet_connection_checker:
+  dartz:
+  http:
+  google_generative_ai:
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+    - assets/svgs/
+
+  fonts:
+    - family: Poppins
+      fonts:
+       - asset: assets/fonts/Rubik-Regular.ttf
+       - asset: assets/fonts/Rubik-Medium.ttf
+       - asset: assets/fonts/Rubik-Bold.ttf
+#    - family: Trajan Pro
+#      fonts:
+#        - asset: fonts/TrajanPro.ttf
+#        - asset: fonts/TrajanPro_Bold.ttf
+#          weight: 700
