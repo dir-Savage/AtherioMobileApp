@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../../../../core/const/app_constants.dart';
+import 'package:flutter/material.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../models/diagnosis_model.dart';
 
@@ -16,9 +16,11 @@ class DiagnosisRemoteDataSourceImpl implements DiagnosisRemoteDataSource {
   Future<DiagnosisModel> getDiagnosis(Map<String, double> inputData) async {
     try {
       final response = await dio.post(
-        '${AppStrings.apiBaseUrl}/predict',
+        'https://db80-156-197-174-251.ngrok-free.app/predict',
         data: inputData,
       );
+      debugPrint(
+          'API response: ${response.data}, status: ${response.statusCode}');
 
       if (response.statusCode == 200) {
         return DiagnosisModel.fromJson(response.data);
@@ -27,7 +29,8 @@ class DiagnosisRemoteDataSourceImpl implements DiagnosisRemoteDataSource {
       } else {
         throw ServerException();
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
+      debugPrint('Error in getDiagnosis: $e\n$stackTrace');
       throw ServerException();
     }
   }

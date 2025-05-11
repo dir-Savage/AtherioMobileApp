@@ -1,10 +1,11 @@
+import 'package:atherio/core/errors/failtures.dart';
+import 'package:atherio/features/prediction/domain/repository/diagnosis_repository.dart';
 import 'package:dartz/dartz.dart';
 import '../../../../core/const/core_usecase.dart';
-import '../../../../core/errors/failtures.dart';
 import '../entities/diagnosis.dart';
-import '../repository/diagnosis_repository.dart';
 
-class GetDiagnosis implements UsCase<Either<Failure, Diagnosis>, Map<String, double>> {
+class GetDiagnosis
+    implements UseCases<Either<Failure, Diagnosis>, Map<String, double>> {
   final DiagnosisRepository repository;
 
   GetDiagnosis(this.repository);

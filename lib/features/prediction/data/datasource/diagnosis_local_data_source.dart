@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../models/diagnosis_model.dart';
 
@@ -43,15 +44,18 @@ class DiagnosisLocalDataSourceImpl implements DiagnosisLocalDataSource {
       };
 
       await caseDoc.set(caseData);
+      debugPrint('Saved case to Firestore: ${caseDoc.id}');
 
-      // Update doctor's list1 with case ID
       final userDoc = firestore.collection('users').doc(doctorId);
-      await userDoc.update({
+      await userDoc.set({
         'list1': FieldValue.arrayUnion([caseDoc.id]),
-      });
+      }, SetOptions(merge: true));
+      debugPrint(
+          'Updated users list1 for doctorId: $doctorId with caseId: ${caseDoc.id}');
 
       return caseDoc.id;
-    } catch (e) {
+    } catch (e, stackTrace) {
+      debugPrint('Error saving to Firestore: $e\n$stackTrace');
       throw ServerException();
     }
   }

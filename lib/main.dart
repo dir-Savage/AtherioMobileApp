@@ -1,6 +1,6 @@
 import 'package:atherio/features/auth/presentation/blocs/auth_bloc.dart';
+import 'package:atherio/features/auth/presentation/screens/login_page.dart';
 import 'package:atherio/features/chatbot/presentation/blocs/chat_bloc.dart';
-import 'package:atherio/features/chatbot/presentation/screens/chat_page.dart';
 import 'package:atherio/features/prediction/presentation/blocs/diagnosis_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -38,9 +38,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
           useMaterial3: true,
-
         ),
-        home: const ChatPage(),
+        home: const LoginPage(),
       ),
     );
   }

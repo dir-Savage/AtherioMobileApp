@@ -5,14 +5,14 @@ class DiagnosisModel extends Diagnosis {
     required String primaryClassification,
     required String specificDiagnosis,
   }) : super(
-    primaryClassification: primaryClassification,
-    specificDiagnosis: specificDiagnosis,
-  );
+          primaryClassification: primaryClassification,
+          specificDiagnosis: specificDiagnosis,
+        );
 
   factory DiagnosisModel.fromJson(Map<String, dynamic> json) {
     return DiagnosisModel(
-      primaryClassification: json['primary_classification'],
-      specificDiagnosis: json['specific_diagnosis'],
+      primaryClassification: json['primary_classification'] as String,
+      specificDiagnosis: json['specific_diagnosis'] as String,
     );
   }
 

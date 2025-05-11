@@ -7,10 +7,12 @@ abstract class UseCase<Type, Params> {
 
 class NoParams {}
 
-
-
 abstract class UsCase<Type, Params> {
   Future<Type> call(Params params);
 }
 
 class NoParam {}
+
+abstract class UseCases<Type, Params> {
+  Future<Type> call(Params params);
+}

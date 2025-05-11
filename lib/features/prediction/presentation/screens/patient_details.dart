@@ -1,5 +1,5 @@
-import 'package:atherio/features/prediction/presentation/screens/ques_screen.dart';
 import 'package:flutter/material.dart';
+import 'ques_screen.dart';
 
 class PatientDetailsPage extends StatefulWidget {
   final String doctorId;
@@ -25,9 +25,7 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Enter Patient Details'),
-      ),
+      appBar: AppBar(title: const Text('Enter Patient Details')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -74,8 +72,8 @@ class _PatientDetailsPageState extends State<PatientDetailsPage> {
                       MaterialPageRoute(
                         builder: (_) => QuestionnairePage(
                           doctorId: widget.doctorId,
-                          patientName: _nameController.text,
-                          patientPhoneNumber: _phoneController.text,
+                          patientName: _nameController.text.trim(),
+                          patientPhoneNumber: _phoneController.text.trim(),
                         ),
                       ),
                     );

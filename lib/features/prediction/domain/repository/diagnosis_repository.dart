@@ -1,9 +1,10 @@
+import 'package:atherio/core/errors/failtures.dart';
 import 'package:dartz/dartz.dart';
-import '../../../../core/errors/failtures.dart';
 import '../entities/diagnosis.dart';
 
 abstract class DiagnosisRepository {
-  Future<Either<Failure, Diagnosis>> getDiagnosis(Map<String, double> inputData);
+  Future<Either<Failure, Diagnosis>> getDiagnosis(
+      Map<String, double> inputData);
   Future<Either<Failure, String>> saveDiagnosis({
     required String doctorId,
     required String patientName,

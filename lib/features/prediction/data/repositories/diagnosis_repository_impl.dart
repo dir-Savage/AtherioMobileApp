@@ -1,12 +1,12 @@
-import 'package:atherio/core/errors/network_info.dart';
+import 'package:atherio/core/errors/failtures.dart';
 import 'package:atherio/features/prediction/data/datasource/diagnosis_local_data_source.dart';
 import 'package:atherio/features/prediction/data/datasource/diagnosis_remote_data_source.dart';
+import 'package:atherio/features/prediction/domain/repository/diagnosis_repository.dart';
 import 'package:dartz/dartz.dart';
 import '../../../../core/const/app_constants.dart';
 import '../../../../core/errors/exceptions.dart';
-import '../../../../core/errors/failtures.dart';
+import '../../../../core/errors/network_info.dart';
 import '../../domain/entities/diagnosis.dart';
-import '../../domain/repository/diagnosis_repository.dart';
 import '../models/diagnosis_model.dart';
 
 class DiagnosisRepositoryImpl implements DiagnosisRepository {
@@ -21,7 +21,8 @@ class DiagnosisRepositoryImpl implements DiagnosisRepository {
   });
 
   @override
-  Future<Either<Failure, Diagnosis>> getDiagnosis(Map<String, double> inputData) async {
+  Future<Either<Failure, Diagnosis>> getDiagnosis(
+      Map<String, double> inputData) async {
     if (await networkInfo.isConnected) {
       try {
         final diagnosis = await remoteDataSource.getDiagnosis(inputData);

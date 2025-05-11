@@ -23,5 +23,6 @@ class SubmitDiagnosisEvent extends DiagnosisEvent {
   });
 
   @override
-  List<Object> get props => [doctorId, patientName, patientPhoneNumber, inputData, questions];
+  List<Object> get props =>
+      [doctorId, patientName, patientPhoneNumber, inputData, questions];
 }
