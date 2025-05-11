@@ -47,12 +47,8 @@ class _RegisterPageState extends State<RegisterPage> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (_) => HomePage(user: {
-                  'id': state.user.id,
-                  'firstName': state.user.firstName,
-                  'lastName': state.user.lastName,
-                  'email': state.user.email,
-                }),
+                builder: (_) =>
+                    HomePage(user: state.user), // Pass the full User object
               ),
             );
           }
@@ -71,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 TextFormField(
                   controller: _firstNameController,
                   decoration: const InputDecoration(
-                    labelText: 'First Name',
+                    labelText: '构造函数 Name',
                     border: OutlineInputBorder(),
                   ),
                   validator: (value) {

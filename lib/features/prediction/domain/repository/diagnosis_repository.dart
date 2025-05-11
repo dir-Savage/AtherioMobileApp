@@ -13,4 +13,8 @@ abstract class DiagnosisRepository {
     required List<double> answers,
     required Diagnosis diagnosis,
   });
+  Future<Either<Failure, List<Map<String, dynamic>>>> searchPatients(
+      String query);
+  Future<Either<Failure, Map<String, dynamic>>> getCaseById(String caseId);
+  Future<Either<Failure, List<Map<String, dynamic>>>> getAllDoctors();
 }

@@ -26,3 +26,35 @@ class SubmitDiagnosisEvent extends DiagnosisEvent {
   List<Object> get props =>
       [doctorId, patientName, patientPhoneNumber, inputData, questions];
 }
+
+class SearchPatientsEvent extends DiagnosisEvent {
+  final String query;
+
+  const SearchPatientsEvent(this.query);
+
+  @override
+  List<Object> get props => [query];
+}
+
+class GetCaseByIdEvent extends DiagnosisEvent {
+  final String caseId;
+
+  const GetCaseByIdEvent(this.caseId);
+
+  @override
+  List<Object> get props => [caseId];
+}
+
+class GetAllDoctorsEvent extends DiagnosisEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class SelectPatientEvent extends DiagnosisEvent {
+  final String patientId;
+
+  const SelectPatientEvent(this.patientId);
+
+  @override
+  List<Object> get props => [patientId];
+}

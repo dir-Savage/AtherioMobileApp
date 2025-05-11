@@ -43,12 +43,8 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (_) => HomePage(user: {
-                  'id': state.user.id,
-                  'firstName': state.user.firstName,
-                  'lastName': state.user.lastName,
-                  'email': state.user.email,
-                }),
+                builder: (_) =>
+                    HomePage(user: state.user), // Pass the full User object
               ),
             );
           } else if (state is AuthFailure) {

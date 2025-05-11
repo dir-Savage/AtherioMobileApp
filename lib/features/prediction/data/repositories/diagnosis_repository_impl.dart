@@ -59,4 +59,36 @@ class DiagnosisRepositoryImpl implements DiagnosisRepository {
       return Left(ServerFailure(AppStrings.unexpectedError));
     }
   }
+
+  @override
+  Future<Either<Failure, List<Map<String, dynamic>>>> searchPatients(
+      String query) async {
+    try {
+      final patients = await localDataSource.searchPatients(query);
+      return Right(patients);
+    } on ServerException {
+      return Left(ServerFailure(AppStrings.unexpectedError));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Map<String, dynamic>>> getCaseById(
+      String caseId) async {
+    try {
+      final caseData = await localDataSource.getCaseById(caseId);
+      return Right(caseData);
+    } on ServerException {
+      return Left(ServerFailure(AppStrings.unexpectedError));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Map<String, dynamic>>>> getAllDoctors() async {
+    try {
+      final doctors = await localDataSource.getAllDoctors();
+      return Right(doctors);
+    } on ServerException {
+      return Left(ServerFailure(AppStrings.unexpectedError));
+    }
+  }
 }
