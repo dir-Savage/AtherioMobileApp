@@ -46,6 +46,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await init(); // Initialize dependencies (from injection.dart)
+  //await dotenv.load(fileName: ".env");
   runApp(const MyApp());
   await migrateFirestore(); // Run migration
   setupServiceLocator();

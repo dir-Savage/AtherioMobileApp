@@ -63,8 +63,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (_) =>
-                    DiagnosisResultsPage(diagnosis: state.diagnosis),
+                builder: (_) => DiagnosisResultsPage(
+                  diagnosis: state.diagnosis,
+                  caseData: state.caseData,
+                ),
               ),
             );
           } else if (state is DiagnosisFailure) {

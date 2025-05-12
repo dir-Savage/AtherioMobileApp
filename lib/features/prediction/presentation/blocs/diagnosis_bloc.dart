@@ -84,15 +84,30 @@ class DiagnosisBloc extends Bloc<DiagnosisEvent, DiagnosisState> {
             answers: answers,
             diagnosis: diagnosis,
           ));
-          saveResult.fold(
-            (failure) {
+          await saveResult.fold(
+            (failure) async {
               debugPrint('saveDiagnosis failed: ${failure.message}');
               emit(DiagnosisFailure(
                   'Failed to save diagnosis: ${failure.message}'));
             },
-            (caseId) {
+            (caseId) async {
               debugPrint('saveDiagnosis succeeded, caseId: $caseId');
-              emit(DiagnosisSuccess(diagnosis));
+              // Fetch full case data
+              final caseResult = await getCaseById.call(caseId);
+              await caseResult.fold(
+                (failure) async {
+                  debugPrint('getCaseById failed: ${failure.message}');
+                  emit(DiagnosisFailure(
+                      'Failed to fetch case data: ${failure.message}'));
+                },
+                (caseData) async {
+                  debugPrint('Fetched case data: $caseData');
+                  emit(DiagnosisSuccess(
+                    diagnosis: diagnosis,
+                    caseData: caseData,
+                  ));
+                },
+              );
             },
           );
         },

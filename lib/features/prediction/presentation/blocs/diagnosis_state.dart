@@ -13,11 +13,15 @@ class DiagnosisLoading extends DiagnosisState {}
 
 class DiagnosisSuccess extends DiagnosisState {
   final Diagnosis diagnosis;
+  final Map<String, dynamic> caseData;
 
-  const DiagnosisSuccess(this.diagnosis);
+  const DiagnosisSuccess({
+    required this.diagnosis,
+    required this.caseData,
+  });
 
   @override
-  List<Object> get props => [diagnosis];
+  List<Object> get props => [diagnosis, caseData];
 }
 
 class DiagnosisFailure extends DiagnosisState {

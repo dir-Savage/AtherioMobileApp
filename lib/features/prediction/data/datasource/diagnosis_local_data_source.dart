@@ -192,7 +192,8 @@ class DiagnosisLocalDataSourceImpl implements DiagnosisLocalDataSource {
         'primaryClassification': data['primaryClassification'] as String? ?? '',
         'specificDiagnosis': data['specificDiagnosis'] as String? ?? '',
         'createdAt':
-            (data['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
+            (data['createdAt'] as Timestamp?)?.toDate().toIso8601String() ??
+                DateTime.now().toIso8601String(),
       };
     } catch (e, stackTrace) {
       debugPrint('Error fetching case $caseId: $e\n$stackTrace');
@@ -214,7 +215,8 @@ class DiagnosisLocalDataSourceImpl implements DiagnosisLocalDataSource {
           'list1': List<String>.from(data['list1'] ?? []),
           'list2': List<String>.from(data['list2'] ?? []),
           'createdAt':
-              (data['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
+              (data['createdAt'] as Timestamp?)?.toDate().toIso8601String() ??
+                  DateTime.now().toIso8601String(),
         };
       }).toList();
 
